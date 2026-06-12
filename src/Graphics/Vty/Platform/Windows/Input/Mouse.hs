@@ -86,6 +86,12 @@ scrollUp = 64
 scrollDown :: Int
 scrollDown = 65
 
+scrollLeft :: Int
+scrollLeft = 66
+
+scrollRight :: Int
+scrollRight = 67
+
 hasBitSet :: Int -> Int -> Bool
 hasBitSet val bit = val .&. bit > 0
 
@@ -110,6 +116,8 @@ getSGRButton mods =
                     , (rightButton,  BRight)
                     , (scrollUp,     BScrollUp)
                     , (scrollDown,   BScrollDown)
+                    , (scrollLeft,   BScrollLeft)
+                    , (scrollRight,  BScrollRight)
                     ]
     in case lookup (mods .&. buttonMask) buttonMap of
         Nothing -> failParse
